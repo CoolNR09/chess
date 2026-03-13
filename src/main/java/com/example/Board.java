@@ -103,8 +103,8 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     void initializePieces() {
     	
     	board[0][3].put(new Piece(true, RESOURCES_BPAWN_PNG));
-        board[7][5].put(new Piece(false, RESOURCES_WPAWN_PNG));
-         board[7][1].put(new Piece(false, RESOURCES_WPAWN_PNG));
+        board[7][6].put(new Piece(false, RESOURCES_WPAWN_PNG));
+         board[7][0].put(new Piece(false, RESOURCES_WPAWN_PNG));
     }
 
     public Square[][] getSquareArray() {

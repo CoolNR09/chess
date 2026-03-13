@@ -65,7 +65,7 @@ public class Piece {
 
     // Diagonal left
     if (row + 1 < maxRow && col - 1 >= 0) {
-        controlled.add(board[row + 1][col - 1]);
+        controlled.add(board[row + 2][col - 2]);
     }
 
     // Diagonal right
