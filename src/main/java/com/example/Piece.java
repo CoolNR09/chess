@@ -59,21 +59,20 @@ public class Piece {
     int row = start.getRow();
     int col = start.getCol();
 
-    // Only allow moves within board boundaries
     int maxRow = board.length;
     int maxCol = board[0].length;
 
-    // Diagonal left
-    if (row + 1 < maxRow && col - 1 >= 0) {
-        controlled.add(board[row + 2][col - 2]);
+    // diagonal left (3 squares)
+    if (row + 3 < maxRow && col - 3 >= 0) {
+        controlled.add(board[row + 3][col - 3]);
     }
 
-    // Diagonal right
-    if (row + 1 < maxRow && col + 1 < maxCol) {
-        controlled.add(board[row + 1][col + 1]);
+    // diagonal right (3 squares)
+    if (row + 3 < maxRow && col + 3 < maxCol) {
+        controlled.add(board[row + 3][col + 3]);
     }
 
-    return controlled;
+     return controlled;
 }
     
     
@@ -98,16 +97,22 @@ public class Piece {
                 
             
             //check diagonal left
-            if(start.getCol()>0&& b.getSquareArray()[start.getRow()+2][start.getCol()-2].isOccupied() && b.getSquareArray()[start.getRow()+2][start.getCol()-2].getOccupyingPiece().getColor() != color){
-                Square downLeft = b.getSquareArray()[start.getRow()+2][start.getCol()-2];
-                moves.add(downLeft);
-            }
+            if(start.getRow() + 3 < 8 && start.getCol() - 3 >= 0 &&
+   b.getSquareArray()[start.getRow()+3][start.getCol()-3].isOccupied() &&
+   b.getSquareArray()[start.getRow()+3][start.getCol()-3].getOccupyingPiece().getColor() != color){
+
+    Square downLeft = b.getSquareArray()[start.getRow()+3][start.getCol()-3];
+    moves.add(downLeft);
+}
             //check diagonal right
 
-            if(start.getCol()>0&& b.getSquareArray()[start.getRow()+2][start.getCol()+2].isOccupied() && b.getSquareArray()[start.getRow()+2][start.getCol()+2].getOccupyingPiece().getColor() != color){
-                Square downRight = b.getSquareArray()[start.getRow()+2][start.getCol()+2];
-                moves.add(downRight);
-     }
+           if(start.getRow() + 3 < 8 && start.getCol() + 3 < 8 &&
+   b.getSquareArray()[start.getRow()+3][start.getCol()+3].isOccupied() &&
+   b.getSquareArray()[start.getRow()+3][start.getCol()+3].getOccupyingPiece().getColor() != color){
+
+    Square downRight = b.getSquareArray()[start.getRow()+3][start.getCol()+3];
+    moves.add(downRight);
+}
 
 
             }
