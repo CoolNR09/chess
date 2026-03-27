@@ -90,10 +90,42 @@ public class Piece {
     public ArrayList<Square> getLegalMoves(Board b, Square start){
         ArrayList<Square> moves = new ArrayList<>();
         if(color == true){
-            if(start.getRow()<7){
+            if(start.getRow()<=7 && start.getRow() >= 0){
                 
-                Square up = b.getSquareArray()[start.getRow()+1][start.getCol()];
+                Square up = b.getSquareArray()[start.getRow()-1][start.getCol()];
                 moves.add(up);
+                
+            
+            //check diagonal left
+            if(start.getRow() - 3 < 8 && start.getCol() - 3 >= 0 &&
+   b.getSquareArray()[start.getRow()-3][start.getCol()-3].isOccupied() &&
+   b.getSquareArray()[start.getRow()-3][start.getCol()-3].getOccupyingPiece().getColor() != color){
+
+    Square downLeft = b.getSquareArray()[start.getRow()+3][start.getCol()-3];
+    moves.add(downLeft);
+}
+            //check diagonal right
+
+           if(start.getRow() - 3 < 8 && start.getCol() + 3 < 8 &&
+   b.getSquareArray()[start.getRow()-3][start.getCol()+3].isOccupied() &&
+   b.getSquareArray()[start.getRow()-3][start.getCol()+3].getOccupyingPiece().getColor() != color){
+
+    Square downRight = b.getSquareArray()[start.getRow()-3][start.getCol()+3];
+    moves.add(downRight);
+}
+
+
+            }
+        }
+
+
+
+
+            else{
+            if(start.getRow()<=7 && start.getRow() >= 0){
+                
+                Square down = b.getSquareArray()[start.getRow()+1][start.getCol()];
+                moves.add(down);
                 
             
             //check diagonal left
