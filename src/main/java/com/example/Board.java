@@ -184,8 +184,10 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     //should move the piece to the desired location only if this is a legal move.
     //use the pieces "legal move" function to determine if this move is legal, then complete it by
     //moving the new piece to it's new board location. 
-
-
+private booleam isInCheck(boolean color){
+//code
+return true;
+}
     // Precondition: A mouse event occurs and any referenced squares or pieces are properly initialized.
     // Postcondition: The board updates based on the mouse action and the display is refreshed.   
     @Override
@@ -202,8 +204,14 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
             endSquare.put(currPiece);
             fromMoveSquare.removePiece();
             
+            if(isInCheck(whiteTurn)){
+                from MoveSquare.pit(currpiece);
+                endSquare.put(captured);
+            }
+else{
+                whiteTurn = !whiteTurn
         }
-       
+    }
         fromMoveSquare.setDisplay(true);
         currPiece = null;
         repaint();
