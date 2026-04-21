@@ -11,39 +11,21 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 //you will need to implement two functions in this file.
-public class Piece {
-    private final boolean color;
-    private BufferedImage img;
+public class Pawn extends Piece {
     
-    public Piece(boolean isWhite, String img_file) {
-        this.color = isWhite;
-         
-        try {
-            if (this.img == null) {
-                this.img = ImageIO.read(new File(System.getProperty("user.dir")+img_file));
-            }
-          } catch (IOException e) {
-            System.out.println("File not found: " + e.getMessage());
-          }
+    public Pawn(boolean isWhite, String img_file) {
+        super(isWhite, img_file);
     }
     
     
 
     
-    public boolean getColor() {
-        return color;
-    }
-    
-    public Image getImage() {
-        return img;
-    }
-    
-    public void draw(Graphics g, Square currentSquare) {
-        int x = currentSquare.getX();
-        int y = currentSquare.getY();
-        
-        g.drawImage(this.img, x, y, null);
-    }
+public String toString() {
+    if (getColor()) {
+        return "white pawn";
+    } else {
+        return "black pawn";
+
     
     
     // TO BE IMPLEMENTED!
