@@ -24,7 +24,7 @@ public String toString() {
     if (getColor()) {
         return "white pawn";
     } else {
-        return "black pawn";
+        return "black pawn";}}
 
     
     
@@ -81,7 +81,7 @@ public String toString() {
             //check diagonal left
             if(start.getRow() - 3 < 8 && start.getCol() - 3 >= 0 &&
    b.getSquareArray()[start.getRow()-3][start.getCol()-3].isOccupied() &&
-   b.getSquareArray()[start.getRow()-3][start.getCol()-3].getOccupyingPiece().getColor() != color){
+   b.getSquareArray()[start.getRow()-3][start.getCol()-3].getOccupyingPiece().getColor() != Color){
 
     Square downLeft = b.getSquareArray()[start.getRow()+3][start.getCol()-3];
     moves.add(downLeft);
@@ -90,7 +90,7 @@ public String toString() {
 
            if(start.getRow() - 3 < 8 && start.getCol() + 3 < 8 &&
    b.getSquareArray()[start.getRow()-3][start.getCol()+3].isOccupied() &&
-   b.getSquareArray()[start.getRow()-3][start.getCol()+3].getOccupyingPiece().getColor() != color){
+   b.getSquareArray()[start.getRow()-3][start.getCol()+3].getOccupyingPiece().getColor() != Color){
 
     Square downRight = b.getSquareArray()[start.getRow()-3][start.getCol()+3];
     moves.add(downRight);

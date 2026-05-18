@@ -184,9 +184,12 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     //should move the piece to the desired location only if this is a legal move.
     //use the pieces "legal move" function to determine if this move is legal, then complete it by
     //moving the new piece to it's new board location. 
-private booleam isInCheck(boolean color){
-//code
-return true;
+private boolean isInCheck(boolean color){
+    //find all pieces who are the opposite color of "color"
+    //loop through the board and check each square to see if it has such a piece
+
+    //ask each enemy piece for its controlledSquares, look through those squares and see if any of them contain
+    //a "instanceof King" and that king is the same color as "color"
 }
     // Precondition: A mouse event occurs and any referenced squares or pieces are properly initialized.
     // Postcondition: The board updates based on the mouse action and the display is refreshed.   
@@ -201,22 +204,22 @@ return true;
         
         //using currPiece
     if(fromMoveSquare != null && currPiece.getLegalMoves(this, fromMoveSquare).contains(endSquare)){
+            Piece captured = endSquare.getOccupyingPiece();
             endSquare.put(currPiece);
             fromMoveSquare.removePiece();
             
             if(isInCheck(whiteTurn)){
-                from MoveSquare.pit(currpiece);
+                fromMoveSquare.put(currPiece);
                 endSquare.put(captured);
             }
-else{
-                whiteTurn = !whiteTurn
-        }
+            else{
+                whiteTurn = !whiteTurn;
+            }
     }
         fromMoveSquare.setDisplay(true);
         currPiece = null;
         repaint();
     }
-
     @Override
     public void mouseDragged(MouseEvent e) {
         currX = e.getX() - 24;
