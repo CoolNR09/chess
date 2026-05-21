@@ -187,7 +187,17 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
 private boolean isInCheck(boolean color){
     //find all pieces who are the opposite color of "color"
     //loop through the board and check each square to see if it has such a piece
-
+for (Square[] row: board) {
+    for (Square s : row) {
+        Piece p = s.getPiece();
+        if (p ! = null && p.getColor() != color) {
+            arrayLIst < square> controlled = p.getControlledSquares(board);
+            for (Square traget : controlled) {
+                Piece targetPiece = traget.getPiece();
+            }
+        }
+    }
+}
     //ask each enemy piece for its controlledSquares, look through those squares and see if any of them contain
     //a "instanceof King" and that king is the same color as "color"
 }
