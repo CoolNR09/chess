@@ -189,15 +189,19 @@ private boolean isInCheck(boolean color){
     //loop through the board and check each square to see if it has such a piece
 for (Square[] row: board) {
     for (Square s : row) {
-        Piece p = s.getPiece();
-        if (p ! = null && p.getColor() != color) {
-            arrayLIst < square> controlled = p.getControlledSquares(board);
+        Piece p = s.getOccupyingPiece();
+        if (p != null && p.getColor() != color) {
+            ArrayList<Square> controlled = p.getControlledSquares(board, s);
             for (Square traget : controlled) {
-                Piece targetPiece = traget.getPiece();
+                Piece targetPiece = traget.getOccupyingPiece();
+                if(targetPiece!= null && targetPiece instanceof King && targetPiece.getColor()== color){
+                    return true;
+                } 
             }
         }
     }
 }
+return false;
     //ask each enemy piece for its controlledSquares, look through those squares and see if any of them contain
     //a "instanceof King" and that king is the same color as "color"
 }
